@@ -1,20 +1,17 @@
 import streamlit as st
 import pandas as pd
 
-option = st.selectbox(
-    'What database are you working on?',
-    ('Sicredi', 'Banrisul', 'Cotrirosa', 'Circulo', 'São José', 'Sinoserra')
-)
+st.title('Read a CSV file using Pandas')
 
-col1, _ = st.columns(2)
+# Prompt the user to enter a file path
+file_path = st.text_input('Enter the path to the CSV file')
 
-with col1:
-    text_input = st.text_input(
-        "Digite o Caminho do Arquivo (C:/) 👇"
-    )
-    if text_input:
-        st.write("You entered: ", text_input)
-        
-    if st.button('Load data'):
-        df = pd.read_excel(text_input)
-        st.dataframe(df)
+# If the user entered a file path and clicked the "Read CSV" button
+if st.button('Read CSV'):
+    try:
+        # Read the CSV file using Pandas
+        df = pd.read_csv(file_path)
+        # Display the DataFrame using Streamlit
+        st.write(df)
+    except FileNotFoundError:
+        st.write(f"File '{file_path}' not found")
