@@ -22,3 +22,4 @@ for row in rows:
 # Create a Pandas dataframe from the data
 df = pd.DataFrame(data[1:], columns=data[0])
 st.write(df)
+#teste
