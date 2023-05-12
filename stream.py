@@ -1,17 +1,19 @@
 import streamlit as st
 import pandas as pd
 
-st.title('Read a CSV file using Pandas')
+st.title('Read a file using Pandas')
 
-# Prompt the user to enter a file path
-file_path = st.text_input('Enter the path to the CSV file')
+# Allow the user to select a file from their local file system
+file = st.file_uploader("Choose a file")
 
-# If the user entered a file path and clicked the "Read CSV" button
-if st.button('Read CSV'):
+# If the user selected a file and clicked the "Read" button
+if st.button('Read'):
     try:
-        # Read the CSV file using Pandas
-        df = pd.read_csv(file_path)
+        # Read the file using Pandas
+        df = pd.read_csv(file)
         # Display the DataFrame using Streamlit
         st.write(df)
-    except FileNotFoundError:
-        st.write(f"File '{file_path}' not found")
+    except AttributeError:
+        st.write('No file selected')
+    except Exception as e:
+        st.write(f'Error reading file: {e}')
