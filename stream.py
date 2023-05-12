@@ -17,4 +17,4 @@ if st.button('Read'):
         st.write('No file selected')
     except Exception as e:
         st.write(f'Error reading file: {e}')
-        #teste
+
