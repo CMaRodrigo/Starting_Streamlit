@@ -10,7 +10,7 @@ file = st.file_uploader("Choose a file")
 if st.button('Read'):
     try:
         # Read the file using Pandas
-        df = pd.read_excel(file)
+        df = pd.read_excel(file, sheet_name='seguro')
         # Display the DataFrame using Streamlit
         st.write(df)
     except AttributeError:
