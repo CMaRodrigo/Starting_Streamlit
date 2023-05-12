@@ -1,16 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import streamlit as st
 
-st.write("Hello, World!")
-
-
-# In[ ]:
-
-
-
-
+if st.button('Say hello'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
