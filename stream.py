@@ -4,7 +4,7 @@ import pandas as pd
 st.title('Read a file using Pandas')
 
 # Allow the user to select a file from their local file system
-file = st.file_uploader("Choose a file", type="excel")
+file = st.file_uploader("Choose a file", type="xlsx")
 
 # If the user selected a file and clicked the "Read" button
 if st.button('Read'):
